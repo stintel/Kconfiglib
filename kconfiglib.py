@@ -3198,6 +3198,9 @@ class Kconfig(object):
                 node.visibility = self._make_and(node.visibility,
                                                  self._expect_expr_and_eol())
 
+            elif t0 is _T_RESET:
+                pass
+
             elif t0 is _T_OPTION:
                 if self._check_token(_T_ENV):
                     if not self._check_token(_T_EQUAL):
@@ -6892,6 +6895,7 @@ except AttributeError:
     _T_OSOURCE,
     _T_PROMPT,
     _T_RANGE,
+    _T_RESET,
     _T_RSOURCE,
     _T_SELECT,
     _T_SOURCE,
@@ -6899,7 +6903,7 @@ except AttributeError:
     _T_TRISTATE,
     _T_UNEQUAL,
     _T_VISIBLE,
-) = range(1, 51)
+) = range(1, 52)
 
 # Keyword to token map, with the get() method assigned directly as a small
 # optimization
@@ -6941,6 +6945,7 @@ _get_keyword = {
     "osource":        _T_OSOURCE,
     "prompt":         _T_PROMPT,
     "range":          _T_RANGE,
+    "reset":          _T_RESET,
     "rsource":        _T_RSOURCE,
     "select":         _T_SELECT,
     "source":         _T_SOURCE,
