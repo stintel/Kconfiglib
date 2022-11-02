@@ -2974,6 +2974,10 @@ class Kconfig(object):
                 filenames = sorted(iglob(join(self._srctree_prefix, pattern)))
 
                 if not filenames and t0 in _OBL_SOURCE_TOKENS:
+                    pattern = join(dirname(self.filename), pattern)
+                    filenames = sorted(iglob(join(self._srctree_prefix, pattern)))
+
+                if not filenames and t0 in _OBL_SOURCE_TOKENS:
                     raise KconfigError(
                         "{}:{}: '{}' not found (in '{}'). Check that "
                         "environment variables are set correctly (e.g. "
