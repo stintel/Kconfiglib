@@ -959,6 +959,8 @@ class Kconfig(object):
     def _init(self, filename, warn, warn_to_stderr, encoding):
         # See __init__()
 
+        sys.setrecursionlimit(20000)
+
         self._encoding = encoding
 
         self.srctree = os.getenv("srctree", "")
